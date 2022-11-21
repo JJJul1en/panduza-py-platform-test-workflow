@@ -24,32 +24,32 @@ RUN pip install python-magic
 RUN pip install python-statemachine
 RUN pip install behave-html-formatter
 
-RUN echo ${{ $steps.meta.outputs.tags }}
+repos clone
+if dev
+RUN echo
+# qqchose comme ça
+# si image name finit par dev alors run pip
+RUN if [[ images = *-dev ]]
+then
+    RUN pip install git+https://github.com/Panduza/picoha-io.git
+    RUN pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git 
+fi
 
-#repos clone
-# if dev
-# RUN echo
-# RUN if [[  = *-dev ]]
-# then
-#     RUN pip install git+https://github.com/Panduza/picoha-io.git
-#     RUN pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git 
-# fi
-
-# #
-# RUN mkdir /etc/panduza
+#
+RUN mkdir /etc/panduza
 
 
-# #f
-# WORKDIR /setup
-# COPY . /setup/
-# RUN pip install .
-# RUN cp -v ./deploy/pza-py-platform-run.py /usr/local/bin/pza-py-platform-run.py
+#f
+WORKDIR /setup
+COPY . /setup/
+RUN pip install .
+RUN cp -v ./deploy/pza-py-platform-run.py /usr/local/bin/pza-py-platform-run.py
 
-# #
-# ENV PYTHONPATH="/etc/panduza/plugins/py"
+#
+ENV PYTHONPATH="/etc/panduza/plugins/py"
 
-# #
-# WORKDIR /work
+#
+WORKDIR /work
 
-# #
-# CMD python3 /usr/local/bin/pza-py-platform-run.py
+#
+CMD python3 /usr/local/bin/pza-py-platform-run.py
