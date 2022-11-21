@@ -17,34 +17,39 @@ RUN apt-get -y install git
 
 
 #
-RUN pip install pyudev 
+RUN pip install pyudev
 RUN pip install loguru
 RUN pip install paho-mqtt
 RUN pip install python-magic
 RUN pip install python-statemachine
 RUN pip install behave-html-formatter
 
+RUN echo ${{ $steps.meta.outputs.tags }}
+
 #repos clone
-RUN echo
-RUN pip install git+https://github.com/Panduza/picoha-io.git
-RUN pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git 
+# if dev
+# RUN echo
+# RUN if [[  = *-dev ]]
+# then
+#     RUN pip install git+https://github.com/Panduza/picoha-io.git
+#     RUN pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git 
+# fi
+
+# #
+# RUN mkdir /etc/panduza
 
 
-#
-RUN mkdir /etc/panduza
+# #f
+# WORKDIR /setup
+# COPY . /setup/
+# RUN pip install .
+# RUN cp -v ./deploy/pza-py-platform-run.py /usr/local/bin/pza-py-platform-run.py
 
+# #
+# ENV PYTHONPATH="/etc/panduza/plugins/py"
 
-#f
-WORKDIR /setup
-COPY . /setup/
-RUN pip install .
-RUN cp -v ./deploy/pza-py-platform-run.py /usr/local/bin/pza-py-platform-run.py
+# #
+# WORKDIR /work
 
-#
-ENV PYTHONPATH="/etc/panduza/plugins/py"
-
-#
-WORKDIR /work
-
-#
-CMD python3 /usr/local/bin/pza-py-platform-run.py
+# #
+# CMD python3 /usr/local/bin/pza-py-platform-run.py
