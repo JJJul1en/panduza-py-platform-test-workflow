@@ -23,7 +23,6 @@ name: Docker build panduza-py-platform-dev version
 
 on:
   push:
-    branches: [ "main" ]
 
     tags:
       - '*'
@@ -58,7 +57,6 @@ jobs:
 # IF TAG PUSHED
 
       - name: Extract Docker metadata
-        if: github.push.tag != '' 
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
