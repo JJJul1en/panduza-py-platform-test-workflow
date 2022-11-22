@@ -24,16 +24,14 @@ RUN pip install python-magic
 RUN pip install python-statemachine
 RUN pip install behave-html-formatter
 
-repos clone
-if dev
+# repos clone
+# if dev
 RUN echo
 # qqchose comme ça
 # si image name ne finit pas par dev alors run pip
-RUN if [[ images != *-dev ]]
-then
-    RUN pip install git+https://github.com/Panduza/picoha-io.git
-    RUN pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git 
-fi
+RUN if [[ images != *-dev ]] ; then
+    RUN pip install git+https://github.com/Panduza/picoha-io.git \
+    RUN pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git ; fi
 
 #
 RUN mkdir /etc/panduza
