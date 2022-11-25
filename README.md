@@ -1,27 +1,17 @@
 # Panduza Python Platform
 
-Panduza platform provides a simple way to create mqtt clients that match panduza specifications.
+Panduza platform provides a simple way to create MQTT clients that match panduza specifications.
 
-## Dependencies
-
-```bash
-pip install paho-mqtt loguru
-```
-
-## Install
-
-Create the tree.json in /etc/panduza/
+## Recommended Usage => docker
 
 ```bash
-./package-build.sh
-./package-monitor.sh
-
-sudo ./service-deploy.sh
-
-# To restart the service
-sudo systemctl restart panduza-py-platform.service
-
-# To monitor the platform run monitor in a separate terminal
-service-monitor.sh
+source docker.build-image.sh
 ```
 
+```bash
+docker run \
+    --network host \
+    -v $PWD:/etc/panduza \
+    -v /run/udev:/run/udev:ro \
+    local/panduza-py-platform:latest
+```
