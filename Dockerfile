@@ -49,5 +49,8 @@ ENV PYTHONPATH="/etc/panduza/plugins/py"
 #
 WORKDIR /work
 
-#
-CMD python3 /usr/local/bin/pza-py-platform-run.py
+# Create the directory for platform plugins
+# Then run the platform
+CMD mkdir -p /etc/panduza/plugins/py; \
+    python3 /usr/local/bin/pza-py-platform-run.py
+        
