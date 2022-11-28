@@ -56,7 +56,7 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-#TOREAD: V2 does not solve warnings
+
 
 # IF PUSH ON MAIN
 
@@ -68,7 +68,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ matrix.image }}
-          # images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-dev
+          # images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-dev TODO remove comm
           tags : type = raw, value = latest
 
 

@@ -3,6 +3,9 @@ FROM ubuntu:22.04
 
 LABEL org.opencontainers.image.source https://github.com/Panduza/panduza-py-platform
 
+#Argument
+ARG PZA_PY_PLATFORM_MODE
+
 # Install Packages
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive TZ=Europe/Paris \
     apt-get -y install \
@@ -25,11 +28,9 @@ RUN pip install python-statemachine
 RUN pip install behave-html-formatter
 
 # repos clone
-# if dev
 RUN echo
-# qqchose comme ça
-# si image name ne finit pas par dev alors run pip
-RUN if [[ images != *-dev ]] ; then \
+# build with plug-ins when not dev (prod or empty)
+RUN if [[ $PZA_PY_PLATFORM_MODE != "dev" ]] ; then \
     pip install git+https://github.com/Panduza/picoha-io.git \
     pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git ; fi
 
