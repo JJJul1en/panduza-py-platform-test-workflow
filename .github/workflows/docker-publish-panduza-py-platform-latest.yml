@@ -38,8 +38,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: "panduza-py-platform:latest"
-          - image: "panduza-py-platform-dev:latest"
+          - image: "panduza-py-platform"
+          - image: "panduza-py-platform-dev"
     permissions:
       contents: read
       packages: write
