@@ -39,8 +39,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: ${{env.REPO}}/"panduza-py-platform"
-          - image: ${{env.REPO}}/"panduza-py-platform-dev"
+          - image: ${{ env.REPO }}/"panduza-py-platform"
+          - image: ${{ env.REPO }}/"panduza-py-platform-dev"
     permissions:
       contents: read
       packages: write
