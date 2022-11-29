@@ -38,8 +38,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: "${{ github.repository }}/panduza-py-platform"
-          - image: "${{ github.repository }}/panduza-py-platform-dev"
+          - image: "ghcr.io/jjjul1en/panduza-py-platform"
+          - image: "ghcr.io/jjjul1en/panduza-py-platform-dev"
     permissions:
       contents: read
       packages: write
