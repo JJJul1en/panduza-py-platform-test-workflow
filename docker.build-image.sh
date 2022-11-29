@@ -6,3 +6,4 @@ then
 else
     docker build -t local/panduza-py-platform-dev:latest . --build-arg PZA_PY_PLATFORM_MODE=dev
 fi
+

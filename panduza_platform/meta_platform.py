@@ -279,6 +279,9 @@ class MetaPlatform:
             logger.warning("ctrl+c => user stop requested")
             self.stop()
 
+        except FileNotFoundError:
+            logger.critical(f"Platform configuration file 'tree.json' has not been found at location '{self.tree_filepath}' !!==>> STOP PLATFORM")
+
     ###########################################################################
     ###########################################################################
 
