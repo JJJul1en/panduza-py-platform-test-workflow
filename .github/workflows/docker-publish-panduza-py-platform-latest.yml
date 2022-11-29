@@ -29,7 +29,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  REPO: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}
 
 
 jobs:
@@ -38,8 +38,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: ${{REPO}}/"panduza-py-platform"
-          - image: ${{REPO}}/"panduza-py-platform-dev"
+          - image: ${{IMAGE_NAME}}/"panduza-py-platform"
+          - image: ${{IMAGE_NAME}}/"panduza-py-platform-dev"
     permissions:
       contents: read
       packages: write
