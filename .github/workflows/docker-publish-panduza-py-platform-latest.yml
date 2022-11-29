@@ -1,19 +1,11 @@
 # Sur le repo suivant :
 #
-# https://github.com/Panduza/panduza-py-platform/pkgs/container/panduza-py-platform
-#
-# Tu dois générer les images suivantes:
+# https://github.com/Panes:
 #
 # Si l’utilisateur pousse sur la branche main
 #
 # panduza-py-platform:latest
-# panduza-py-platform-dev:latest (la même image sans les plugins installés)
-#
-# Si l’utilisateur pousse sur un tag
-#
-# panduza-py-platform:version
-# panduza-py-platform-dev:version (la même image sans les plugins installés)
-
+# panduza-py-platform-dev:latest (la même image sans les
 name: Docker build panduza-py-platform latest
 
 # This workflow uses actions that are not certified by GitHub.
@@ -39,8 +31,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: "ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}/panduza-py-platform"
-          - image: "ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}/panduza-py-platform-dev"
+          - image: "ghcr.io/${{ env.GITHUB_REPOSITORY_OWNER }}/panduza-py-platform"
+          - image: "ghcr.io/${{ env.GITHUB_REPOSITORY_OWNER }}/panduza-py-platform-dev"
     permissions:
       contents: read
       packages: write
