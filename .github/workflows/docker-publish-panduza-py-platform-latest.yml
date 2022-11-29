@@ -31,8 +31,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: "ghcr.io/${{ env.GITHUB_REPOSITORY_OWNER }}/panduza-py-platform"
-          - image: "ghcr.io/${{ env.GITHUB_REPOSITORY_OWNER }}/panduza-py-platform-dev"
+          - image: "ghcr.io/$GITHUB_REPOSITORY_OWNER/panduza-py-platform"
+          - image: "ghcr.io/$GITHUB_REPOSITORY_OWNER/panduza-py-platform-dev"
     permissions:
       contents: read
       packages: write
