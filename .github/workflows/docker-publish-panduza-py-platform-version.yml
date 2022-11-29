@@ -23,7 +23,6 @@ name: Docker build panduza-py-platform version
 
 on:
   push:
-
     tags:
       - '*'
 
