@@ -14,8 +14,8 @@ env:
 jobs:
   build-and-push-image-prod:
     runs-on: ubuntu-latest
-      env:
-        PZA_PY_PLATFORM_MODE: dev
+    env:
+      PZA_PY_PLATFORM_MODE: dev
     permissions:
       contents: read
       packages: write
