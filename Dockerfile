@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 LABEL org.opencontainers.image.source https://github.com/Panduza/panduza-py-platform
 
 # Argument
-ARG PZA_PY_PLATFORM_MODE
+#ENV ARG PZA_PY_PLATFORM_MODE
 
 # Install Packages
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive TZ=Europe/Paris \
