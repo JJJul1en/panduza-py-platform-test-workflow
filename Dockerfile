@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 LABEL org.opencontainers.image.source https://github.com/Panduza/panduza-py-platform
 
 # Argument
-#ENV ARG PZA_PY_PLATFORM_MODE
+ARG PZA_PY_PLATFORM_MODE
 
 # Install Packages
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive TZ=Europe/Paris \
@@ -28,7 +28,7 @@ RUN pip install behave-html-formatter
 # repos clone
 RUN echo $PZA_PY_PLATFORM_MODE
 # build with plug-ins when prod
-RUN bash -c "if [[ $PZA_PY_PLATFORM_MODE = "prod" ]] ; then \
+RUN if [ $PZA_PY_PLATFORM_MODE = "prod" ] ; then \
     pip install git+https://github.com/Panduza/picoha-io.git \
     pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git ; fi"
 

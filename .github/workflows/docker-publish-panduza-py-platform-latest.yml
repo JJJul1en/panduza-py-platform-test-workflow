@@ -14,8 +14,6 @@ env:
 jobs:
   build-and-push-image-prod:
     runs-on: ubuntu-latest
-    env:
-      PZA_PY_PLATFORM_MODE: dev
     permissions:
       contents: read
       packages: write
@@ -47,14 +45,13 @@ jobs:
         with:
           context: .
           push: true
+          buildArgs: PZA_PY_PLATFORM_MODE=prod
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }} 
 
 
   build-and-push-image-dev:
       runs-on: ubuntu-latest
-      env:
-        PZA_PY_PLATFORM_MODE: dev
       permissions:
         contents: read
         packages: write
@@ -86,6 +83,6 @@ jobs:
           with:
             context: .
             push: true
+            buildArgs: PZA_PY_PLATFORM_MODE=dev
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }} 
-
