@@ -28,9 +28,9 @@ RUN pip install behave-html-formatter
 # repos clone
 RUN echo $PZA_PY_PLATFORM_MODE
 # build with plug-ins when prod
-RUN if [[ $PZA_PY_PLATFORM_MODE = "prod" ]] ; then \
+RUN bash -c "if [[ $PZA_PY_PLATFORM_MODE = "prod" ]] ; then \
     pip install git+https://github.com/Panduza/picoha-io.git \
-    pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git ; fi
+    pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git ; fi"
 
 #
 RUN mkdir /etc/panduza
