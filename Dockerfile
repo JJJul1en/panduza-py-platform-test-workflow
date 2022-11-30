@@ -26,9 +26,9 @@ RUN pip install python-statemachine
 RUN pip install behave-html-formatter
 
 # repos clone
-RUN echo
-# build with plug-ins when not dev (prod or empty)
-RUN if [[ $PZA_PY_PLATFORM_MODE != "dev" ]] ; then \
+RUN echo $PZA_PY_PLATFORM_MODE
+# build with plug-ins when prod
+RUN if [[ $PZA_PY_PLATFORM_MODE = "prod" ]] ; then \
     pip install git+https://github.com/Panduza/picoha-io.git \
     pip install git+https://github.com/paulhfisher/panduza-py-class-power-supply.git ; fi
 
